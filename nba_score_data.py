@@ -13,6 +13,7 @@ def get_links():
     links = data['links']
     return links
 
+
 def getScoreboard():
     scoreboard = get_links()['currentScoreboard']
     games = get(BASE_URL + scoreboard).json()['games']
@@ -32,14 +33,25 @@ def getScoreboard():
 
 def get_stats():
     stats = get_links()['leagueTeamStatsLeaders']
-    teams = get(BASE_URL + stats).json()['league']['standard']['regularSeason']['teams']
+    teams = get(BASE_URL + stats).json()['league']['vegas']['regularSeason']['teams']
+
+
+
+
 
     for team in teams:
         name = team['name']
         nickname = team['nickname']
         ppg = team['ppg']
-        fieldPct = team['fgp']
-        print(f"{name} - {nickname} - {ppg} - {fieldPct}")
+        #fieldPct = team['fgp']
+
+        print(f"{name} - {nickname} - {ppg}")
+
+
+
+
+
+
 
 
 
